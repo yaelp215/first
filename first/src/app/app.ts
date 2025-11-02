@@ -11,8 +11,13 @@ import { USERS } from './fake_users';
   styleUrl: './app.css'
 })
 export class App {
+
    users = USERS;
   protected readonly title = signal('first');
+
+  onUserSelected(id: string){
+      console.log("hiiiii")
+  }
   
   
 }

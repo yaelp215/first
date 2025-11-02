@@ -4,7 +4,11 @@
     <li>
       <app-user 
         [name]="users[0].name" 
-        [avatar]="users[0].avatar">
+        [avatar]="users[0].avatar"
+        [id]="users[0].id"
+        (userselected)="onUserSelected($event)"
+        >
+        
       </app-user>
     </li>
     <li>
