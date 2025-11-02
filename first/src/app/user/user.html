@@ -1,5 +1,7 @@
 <div>
-  <img [src]="'assets/users/' + avatar" [alt]="name" width="50" height="50">
+  <button (click)="onselect()" >
+    <img [src]="'assets/users/' + avatar" [alt]="name" width="50" height="50">
   <span>{{ name }}</span>
    <p>{{id}}</p>
+  </button>
 </div>
