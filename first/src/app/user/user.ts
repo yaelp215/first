@@ -7,17 +7,16 @@ import {  Input,Output } from '@angular/core';
   selector: 'app-user',
   imports: [],
   templateUrl: './user.html',
-  styleUrl: './user.css'
+ styleUrls: ['./user.css']
 })
 export class User {
   @Input() name!: string;
   @Input() avatar!: string;
   @Input() id!: string;
-  @Output() userselected = new EventEmitter<string>();
- 
-  onselect(){
-    this.userselected.emit(this.id)
-  }
+ @Output() userSelected = new EventEmitter<string>(); 
+onSelect() {
+  this.userSelected.emit(this.id);
+}
   
  get imagePath() {
     return 'assets/users/' + this.avatar;

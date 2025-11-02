@@ -1,23 +1,16 @@
 <app-header></app-header>
+
 <main>
-<ul id="users">
-    <li>
+  <ul id="users">
+    <li *ngFor="let user of users">
       <app-user 
-        [name]="users[0].name" 
-        [avatar]="users[0].avatar"
-        [id]="users[0].id"
-        (userselected)="onUserSelected($event)"
-        >
-        
-      </app-user>
-    </li>
-    <li>
-      <app-user 
-        [name]="users[1].name" 
-        [avatar]="users[1].avatar">
+        [name]="user.name" 
+        [avatar]="user.avatar"
+        [id]="user.id"
+        (userSelected)="onUserSelected($event)">
       </app-user>
     </li>
   </ul>
-<!-- 
-  <button (click)="changeUser()">Change User</button> -->
+
+  <p *ngIf="selectedUser">המשתמש שנבחר: {{ selectedUser.name }}</p>
 </main>
