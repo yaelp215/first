@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from '@angular/core';
 import {USERS} from '../fake_users'
 import {  Input,Output } from '@angular/core';
+import { input } from '../../../node_modules/@angular/core/index';
 
 
 @Component({
@@ -10,6 +11,7 @@ import {  Input,Output } from '@angular/core';
  styleUrls: ['./user.css']
 })
 export class User {
+  @Input({required:true}) isSelected!:boolean;
   @Input() name!: string;
   @Input() avatar!: string;
   @Input() id!: string;

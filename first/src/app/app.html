@@ -2,15 +2,31 @@
 
 <main>
   <ul id="users">
-    <li *ngFor="let user of users">
+    @for(u of users; track u.id){
+       <li >
       <app-user 
-        [name]="user.name" 
-        [avatar]="user.avatar"
-        [id]="user.id"
+        [name]="u.name" 
+        [avatar]="u.avatar"
+        [id]="u.id"
+        [isSelected]="u.id===selectedUser?.id"
         (userSelected)="onUserSelected($event)">
       </app-user>
     </li>
+    }
+   
   </ul>
-
-  <p *ngIf="selectedUser">המשתמש שנבחר: {{ selectedUser.name }}</p>
+  @if(selectedUser){
+    <app-tasks
+    [name]="selectedUser.name"
+    >
+         
+    </app-tasks>
+    
+  }
+    @else{
+      <p>plese select a  user</p>
+    }
+  
+  
+ 
 </main>
