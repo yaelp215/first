@@ -6,6 +6,8 @@ import { USERS } from './fake_users';
 import { CommonModule } from '@angular/common'
 import { Tasks } from './tasks/tasks';
 import { Task } from './tasks/task/task';
+import { NewTask } from './tasks/new-task/new-task';
+
 
 
 @Component({
