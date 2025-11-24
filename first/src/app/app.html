@@ -2,6 +2,7 @@
 
 <main>
   <ul id="users">
+    <button (click)="toggleForm()">Contact us</button>
     @for(u of users; track u.id){
        <li >
       <app-user 
@@ -20,5 +21,9 @@
     @else{
       <p>plese select a  user</p>
     }
+  
+  @if( showForm) {
+      <app-cotact-form></app-cotact-form>
+  } 
        
 </main>

@@ -7,16 +7,22 @@ import { CommonModule } from '@angular/common'
 import { Tasks } from './tasks/tasks';
 import { Task } from './tasks/task/task';
 import { NewTask } from './tasks/new-task/new-task';
+import {CotactForm} from './cotact-form/cotact-form'
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [Header,User,CommonModule,Tasks],
+  imports: [Header,User,CommonModule,Tasks,CotactForm],
   templateUrl: './app.html',
 styleUrls: ['./app.css']
 })
 export class App {
+   showForm = false;
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
 
    users = USERS;
 
