@@ -3,6 +3,9 @@
 <main>
   <ul id="users">
     <button (click)="toggleForm()">Contact us</button>
+    <div class="actions">
+      <button (click)="openNewuser()">Add User</button>
+    </div>
     @for(u of users; track u.id){
        <li >
       <app-user 
@@ -24,6 +27,11 @@
   
   @if( showForm) {
       <app-cotact-form></app-cotact-form>
-  } 
+  }
+  @if( showUser) {
+   <app-new-user (newuser)="addmewuser()" ></app-new-user>
+}
+  
+     
        
 </main>

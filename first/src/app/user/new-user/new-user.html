@@ -1,0 +1,67 @@
+<div class="backdrop"></div>
+<dialog open>
+  <h4>Add User</h4>
+
+  <form [formGroup]="Form" (ngSubmit)="submit()">
+    <div class="row" formGroupName="name">
+      <div>
+        <p>
+          <label for="firstName" >First Name</label>
+          <input id="firstName" formControlName="firstName" type="text" />
+        </p>
+      </div>
+
+      <div>
+        <p>
+          <label for="lastName" >Last Name</label>
+          <input id="lastName" formControlName="lastName" type="text" />
+          @if(Form.get('name.firstName')?.touched 
+     && Form.get('name.firstName')?.hasError('maxlength')){
+    <div class="error">מותר עד 18 תווים בלבד</div>
+  }
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <label for="email" >Email</label>
+      @if(email.touched && email.hasError('email')){
+        <div class="error">מייל לא תקין</div>
+      }
+      <input id="email" formControlName="email" type="email" />
+    </p>
+    
+    <div class="row" formGroupName="passwords">
+      <p>
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+        @if(Form.get('passwords')?.hasError('mismatch') 
+        && Form.get('passwords')?.touched) {
+       <div class="error">סיסמאות אינן תואמות</div>
+     }
+      </p>
+      <p>
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+      </p>
+    </div>
+    
+    <div class="categories-section" >
+      <label>Task Categories</label>
+      <div class="row" formArrayName="categories">
+        @for(cat of categoryList;track $index){
+          <div class="category-row">
+            <label>
+              <input type="checkbox" formControlName="$index"  />
+             {{cat}} 
+            </label>
+          </div>
+        }
+      </div>
+    </div>
+    <p class="actions">
+      <button type="button">Cancel</button>
+      <button type="submit" [disabled]="Form.invalid">Create</button>
+    </p>
+  </form>
+</dialog>

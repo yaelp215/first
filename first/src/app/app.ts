@@ -8,23 +8,39 @@ import { Tasks } from './tasks/tasks';
 import { Task } from './tasks/task/task';
 import { NewTask } from './tasks/new-task/new-task';
 import {CotactForm} from './cotact-form/cotact-form'
+import {NewUser} from './user/new-user/new-user'
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [Header,User,CommonModule,Tasks,CotactForm],
+  imports: [Header,User,CommonModule,Tasks,CotactForm,NewUser],
   templateUrl: './app.html',
 styleUrls: ['./app.css']
 })
 export class App {
    showForm = false;
+   showUser=false;
+
 
   toggleForm() {
     this.showForm = !this.showForm;
   }
+  openNewuser(){
+    this.showUser=!this.showUser
+    console.log("sss")
+  }
 
    users = USERS;
+  //  addmewuser(){
+  //   const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+  //   const fullName = `${newuser.name.firstName} ${formValue.name.lastName}`.trim();
+  //   const user: UserObj = {
+  //     id,
+  //     name: fullName,
+  //     avatar: ''
+  //     };
+  //  }
 
   protected readonly title = signal('first');
   selectedUser?: any;
