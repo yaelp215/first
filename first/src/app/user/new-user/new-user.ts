@@ -35,6 +35,7 @@ export class NewUser {
   }
   submit(){
     this.newuser.emit(this.Form.value);
+    
     this.Form.reset();
   }
   

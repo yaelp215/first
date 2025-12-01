@@ -28,5 +28,5 @@ export const USERS = [
       id: 'u6',
       name: 'Yossi Ben-David',
       avatar: 'user-6.jpg',
-    },
+    }
   ];

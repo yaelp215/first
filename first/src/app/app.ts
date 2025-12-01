@@ -12,6 +12,7 @@ import {NewUser} from './user/new-user/new-user'
 
 
 
+
 @Component({
   selector: 'app-root',
   imports: [Header,User,CommonModule,Tasks,CotactForm,NewUser],
@@ -32,21 +33,24 @@ export class App {
   }
 
    users = USERS;
-  //  addmewuser(){
-  //   const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
-  //   const fullName = `${newuser.name.firstName} ${formValue.name.lastName}`.trim();
-  //   const user: UserObj = {
-  //     id,
-  //     name: fullName,
-  //     avatar: ''
-  //     };
-  //  }
+   addmewuser(formValue:any){
+    console.log("addmewuser called", formValue);
+    const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+    const fullName = `${formValue.name.firstName} ${formValue.name.lastName}`.trim();
+    const user: any = {
+      id,
+      name: fullName,
+      avatar: ''
+      };
+       console.log(user);
+      this.users = [...this.users, user];
+      console.log(this.users);
+      
+   }
 
   protected readonly title = signal('first');
   selectedUser?: any;
-
   onUserSelected(id: string){
-    
     const choiceUser = this.users.find(prev => prev.id === id);
     this.selectedUser = choiceUser;
       console.log(choiceUser);
