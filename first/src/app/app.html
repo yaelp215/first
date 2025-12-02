@@ -29,9 +29,6 @@
       <app-cotact-form></app-cotact-form>
   }
   @if( showUser) {
-   <app-new-user (newuser)="addmewuser($event)" ></app-new-user>
-}
-  
-     
-       
+   <app-new-user (newuser)="addmewuser($event)"  (cancel)="showUser = false"></app-new-user>
+}  
 </main>

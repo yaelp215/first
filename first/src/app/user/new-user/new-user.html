@@ -39,6 +39,10 @@
         && Form.get('passwords')?.touched) {
        <div class="error">סיסמאות אינן תואמות</div>
      }
+     @if(Form.get('passwords.password')?.touched &&
+    Form.get('passwords.password')?.hasError('minlength')) {
+  <div class="error">סיסמה חייבת להיות לפחות 6 תווים</div>
+}
       </p>
       <p>
         <label for="confirmPassword">Confirm Password</label>
@@ -60,7 +64,7 @@
       </div>
     </div>
     <p class="actions">
-      <button type="button">Cancel</button>
+      <button type="button"   (click)="onCancel()">Cancel</button>
       <button type="submit" [disabled]="Form.invalid">Create</button>
     </p>
   </form>

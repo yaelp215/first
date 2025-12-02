@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal ,Output,EventEmitter} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { User } from './user/user';
@@ -20,10 +20,10 @@ import {NewUser} from './user/new-user/new-user'
 styleUrls: ['./app.css']
 })
 export class App {
+  
    showForm = false;
    showUser=false;
-
-
+ 
   toggleForm() {
     this.showForm = !this.showForm;
   }
@@ -44,9 +44,10 @@ export class App {
       };
        console.log(user);
       this.users = [...this.users, user];
-      console.log(this.users);
+      this.showUser=false;
       
    }
+  
 
   protected readonly title = signal('first');
   selectedUser?: any;

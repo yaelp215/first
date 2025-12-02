@@ -10,6 +10,7 @@ import { AbstractControl } from '../../../../node_modules/@angular/forms/index';
   styleUrl: './new-user.css'
 })
 export class NewUser {
+   @Output() cancel = new EventEmitter<any>(); 
   @Output() newuser = new EventEmitter<any>(); 
   categoryList=["work","personal","urgent"]
   Form=new FormGroup({
@@ -35,8 +36,11 @@ export class NewUser {
   }
   submit(){
     this.newuser.emit(this.Form.value);
-    
     this.Form.reset();
+    
   }
+  onCancel() {
+  this.cancel.emit();
+}
   
 }
